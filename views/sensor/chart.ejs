@@ -1,0 +1,380 @@
+<%- include('../template/header') %>
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>ECharts</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Charts</li>
+          <li class="breadcrumb-item active">ECharts</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <p>Sensor Chart</p>
+
+    <section class="section">
+    
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">roomArea1</h5>
+
+              <div class="row">
+                <div class="col-lg-6">
+
+              <!-- Line Chart -->
+              <div id="lineChart1" style="min-height: 400px;" class="echart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  echarts.init(document.querySelector("#lineChart1")).setOption({
+                    title: {
+                        text: 'Temperature  '
+
+                    },
+                    xAxis: {
+                      type: 'category',
+                      label: 'hari',
+                      data : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    },
+                    yAxis: {
+                      type: 'value'
+                    },
+                    legend: {
+                      top: '5%',
+                      left: 'center'
+                    },
+                    series: [
+                    {
+                      name: 'Max',
+                      data: [<%= datatempmax1%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#ff0000'}
+                    },
+                    {
+                      name: 'Min',
+                      data: [<%= datatempmin1%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#0000ff'}
+                    },
+                    {
+                      name: 'Avg',
+                      data: [<%= datatempavg1%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#39ac39'}
+                    }
+                ]
+                  });
+                });
+              </script>
+              <!-- End Line Chart -->
+              <!-- Line Chart -->
+
+              </div>
+                <div class="col-lg-6">
+                    <div id="lineku%>" style="min-height: 400px;" class="echart"></div>
+
+              <script>
+               
+                document.addEventListener("DOMContentLoaded", () => {
+                  echarts.init(document.querySelector("#lineku")).setOption({
+                    title: {
+                        text:'Humidity'
+
+                    },
+                    xAxis: {
+                      type: '',
+                      label: 'hari',
+                      data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+                    },
+                    legend: {
+                      top: '5%',
+                      left: 'center'
+                    },
+                    yAxis: {
+                      type: 'value'
+                    },
+                    series: [
+                    {
+                      name: 'Max',
+                      data: [<%= datahummax1%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#ff0000'}
+                    },
+                    {
+                      name: 'Min',
+                      data: [<%= datahummin1%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#0000ff'}
+                    },
+                    {
+                      name: 'Avg',
+                      data: [<%= datahumavg1%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#39ac39'}
+                    }
+                ]
+                  });
+                });
+              </script>
+              <!-- End Line Chart -->
+              <!-- Line Chart -->
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">roomArea2</h5>
+  
+                <div class="row">
+                  <div class="col-lg-6">
+  
+                <!-- Line Chart -->
+                <div id="lineChart2" style="min-height: 400px;" class="echart"></div>
+  
+                <script>
+                  document.addEventListener("DOMContentLoaded", () => {
+                    echarts.init(document.querySelector("#lineChart2")).setOption({
+                      title: {
+                          text: 'Temperature  '
+  
+                      },
+                      xAxis: {
+                        type: 'category',
+                        label: 'hari',
+                        data : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                      },
+                      yAxis: {
+                        type: 'value'
+                      },
+                      legend: {
+                        top: '5%',
+                        left: 'center'
+                      },
+                      series: [
+                      {
+                        name: 'Max',
+                        data: [<%= datatempmax2%>],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {color: '#ff0000'}
+                      },
+                      {
+                        name: 'Min',
+                        data: [<%= datatempmin2%>],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {color: '#0000ff'}
+                      },
+                    {
+                      name: 'Avg',
+                      data: [<%= datatempavg2%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#39ac39'}
+                    }]
+                    });
+                  });
+                </script>
+                <!-- End Line Chart -->
+                <!-- Line Chart -->
+  
+                </div>
+                  <div class="col-lg-6">
+                      <div id="lineku2%>" style="min-height: 400px;" class="echart"></div>
+  
+                <script>
+                 
+                  document.addEventListener("DOMContentLoaded", () => {
+                    echarts.init(document.querySelector("#lineku2")).setOption({
+                      title: {
+                          text:'Humidity'
+  
+                      },
+                      xAxis: {
+                        type: '',
+                        label: 'hari',
+                        data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+                      },
+                      legend: {
+                        top: '5%',
+                        left: 'center'
+                      },
+                      yAxis: {
+                        type: 'value'
+                      },
+                      series: [
+                      {
+                        name: 'Max',
+                        data: [<%= datahummax2%>],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {color: '#ff0000'}
+                      },
+                      {
+                        name: 'Min',
+                        data: [<%= datahummin2%>],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {color: '#0000ff'}
+                      },
+                    {
+                      name: 'Avg',
+                      data: [<%= datahumavg2%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#39ac39'}
+                    }]
+                    });
+                  });
+                </script>
+                <!-- End Line Chart -->
+                <!-- Line Chart -->
+  
+  
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">roomArea3</h5>
+  
+                <div class="row">
+                  <div class="col-lg-6">
+  
+                <!-- Line Chart -->
+                <div id="lineChart3" style="min-height: 400px;" class="echart"></div>
+  
+                <script>
+                  document.addEventListener("DOMContentLoaded", () => {
+                    echarts.init(document.querySelector("#lineChart3")).setOption({
+                      title: {
+                          text: 'Temperature  '
+  
+                      },
+                      xAxis: {
+                        type: 'category',
+                        label: 'hari',
+                        data : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                      },
+                      yAxis: {
+                        type: 'value'
+                      },
+                      legend: {
+                        top: '5%',
+                        left: 'center'
+                      },
+                      series: [
+                      {
+                        name: 'Max',
+                        data: [<%= datatempmax3%>],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {color: '#ff0000'}
+                      },
+                      {
+                        name: 'Min',
+                        data: [<%= datatempmin3%>],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {color: '#0000ff'}
+                      },
+                    {
+                      name: 'Avg',
+                      data: [<%= datatempavg3%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#39ac39'}
+                    }]
+                    });
+                  });
+                </script>
+                <!-- End Line Chart -->
+                <!-- Line Chart -->
+  
+                </div>
+                  <div class="col-lg-6">
+                      <div id="lineku21%>" style="min-height: 400px;" class="echart"></div>
+  
+                <script>
+                 
+                  document.addEventListener("DOMContentLoaded", () => {
+                    echarts.init(document.querySelector("#lineku21")).setOption({
+                      title: {
+                          text:'Humidity'
+  
+                      },
+                      xAxis: {
+                        type: '',
+                        label: 'hari',
+                        data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+                      },
+                      legend: {
+                        top: '5%',
+                        left: 'center'
+                      },
+                      yAxis: {
+                        type: 'value'
+                      },
+                      series: [
+                      {
+                        name: 'Max',
+                        data: [<%= datahummax3%>],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {color: '#ff0000'}
+                      },
+                      {
+                        name: 'Min',
+                        data: [<%= datahummin3%>],
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {color: '#0000ff'}
+                      },
+                    {
+                      name: 'Avg',
+                      data: [<%= datahumavg3%>],
+                      type: 'line',
+                      smooth: true,
+                      lineStyle: {color: '#39ac39'}
+                    }]
+                    });
+                  });
+                </script>
+                <!-- End Line Chart -->
+                <!-- Line Chart -->
+  
+  
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+<%- include('../template/footer') %>
