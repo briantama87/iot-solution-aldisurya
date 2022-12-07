@@ -110,7 +110,7 @@ But, i think i've found the initial solution to answer the case 3#:
 
 I have made the similar project with case 3# in my last company experience. In that project, they have same principle using socket io instead of HTTP to get live data shown in front end side.
 
-Beside of that, i dont made a unit testing because i'm not having enough time more. But in my daily project, i always build a unit testing file (I usually use mocha js framework). If you are interseted, i have packed list of my project in my personal website portfolio (http://briantama87.github.io/)
+Beside of that, i dont made a unit testing because i'm not having enough time more. But in my daily project, i always build a unit testing file (I usually use mocha js framework). If you are interseted, i have packed list of my project in my personal website portfolio (http://briantama87.github.io/) and on my linkedin account (https://www.linkedin.com/in/aldisb/).
 
 
 
