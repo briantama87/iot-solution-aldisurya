@@ -1,8 +1,13 @@
 const { json} = require('body-parser');
+
+// Import the JSON File
 const fileSalary = require('../public/JSON Files/salary_data.json').array;
 const fileSensor = require('../public/JSON Files/sensor_data.json').array;
+
+// Module to helping manipulate array
 const _ = require('lodash');
-// const jsonfile = file.array;
+
+// Module to fetching API
 const fetch = (...args) =>
 	import('node-fetch').then(({default: fetch}) => fetch(...args));
 const https = require('https');
@@ -11,7 +16,7 @@ module.exports = {
     async getSalary(req, res) {
         try {
 
-            // GET Currency USD to IDR
+            // GET Currency USD to IDR (Live Data) from resource with async function
             const options = {
                 method: 'GET',
                 headers: {
@@ -19,30 +24,29 @@ module.exports = {
                     'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
                 }
             };
-            
+
             const dollar = await fetch('https://currency-exchange.p.rapidapi.com/exchange?from=USD&to=IDR&q=1.0', options);
 
-            // Respond USD to IDR
+            // Respond USD to IDR and convert to json to easily read
             const jsondollar = await dollar.json();
 
-            // Convert field SalaryinIDR to Salary in USD
-
+            // Add one field with Salary in USD value according to previous currency
             const idrtoUSD =  fileSalary.map(t1 => ({
                 ...t1,
                 salaryinUSD : t1.salaryInIDR / jsondollar
             }))
-            // res.json(idrtoUSD);
 
-            // GET JSON from Resource
+
+            // GET JSON file from instructions requirements
             const url = 'http://jsonplaceholder.typicode.com/users';
 
             const salary = await fetch(url);
             const fetchjson = await salary.json();
             
-            // JOIN 2 Json by id
+            // JOIN 2 Json file by Id with help of array map
             const result = fetchjson.map(a => ({...a, ...idrtoUSD.find(b => b.id === a.id)}));
 
-
+            // Send the json data and render html source with ejs engine
             res.render('tabel/salarytable', {
                 data: result
             });
@@ -53,6 +57,36 @@ module.exports = {
         } catch {
             res.send('error');
 
+        }
+    },
+    async sensorData(req, res) {
+        try {
+
+            // Convert the timestamps to day
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const dateSensor = fileSensor.map(x => {
+                
+                const d = days[new Date(x.timestamp).getDay()];
+                return {
+                    ...x,
+                    day: d
+                }
+            });
+
+
+            // Group sensor data by day and roomArea
+            const output = _.map(_.groupBy(dateSensor, 'roomArea'), (x, y) => {
+                var temp = {};
+                temp[y] = _.groupBy(x, 'day')
+                return temp;
+            });
+
+
+            // Send the data through API to provide the data have correctly grouped
+            res.json(output);
+
+        } catch(err){
+            res.json(err)
         }
     },
 
@@ -75,6 +109,8 @@ module.exports = {
                 return temp;
             });
 
+
+            // Make empty array to store the requirements data
             const temp1 = [];
             const maxTemroom1 = [];
             const minTemroom1 = [];
@@ -110,13 +146,15 @@ module.exports = {
             const minHumroom3 = [];
             const avgHumroom3 = [];
             const medHumroom3 = [];
+
+            // Make a array of output data 
             const cobaku = [output[0].roomArea1.Sun, output[0].roomArea1.Mon, output[0].roomArea1.Tue, output[0].roomArea1.Wed, output[0].roomArea1.Thu, output[0].roomArea1.Fri, output[0].roomArea1.Sat];
             const cobaku1 = [output[1].roomArea2.Sun, output[1].roomArea2.Mon, output[1].roomArea2.Tue, output[1].roomArea2.Wed, output[1].roomArea2.Thu, output[1].roomArea2.Fri, output[1].roomArea2.Sat];
             const cobaku2 = [output[2].roomArea3.Sun, output[2].roomArea3.Mon, output[2].roomArea3.Tue, output[2].roomArea3.Wed, output[2].roomArea3.Thu, output[2].roomArea3.Fri, output[2].roomArea3.Sat];
             
             
 
-            
+            // Iterating the array to get data per roomArea
             for(var i=0; i < cobaku.length; i++){
                 const tem1 = cobaku[i].map(x => {
                     return x.temperature
@@ -181,6 +219,9 @@ module.exports = {
                 minTemroom3.push(Math.min(...tem3));
                 minHumroom3.push(Math.min(...hum3))};
 
+
+            
+            // Send the data to view engine
             res.render('sensor/chart', {
                 datatempmax1 : maxTemroom1,
                 datatempmin1 : minTemroom1,
@@ -210,49 +251,9 @@ module.exports = {
 
 
             });
-            
-            
-
-
-
-            
-
-            
-        
-        
-            
-
-            
-
         } catch(err) {
             res.send(err);
         }
-
-    },
-    async sensorData(req, res) {
-        try{
-            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            const dateSensor = fileSensor.map(x => {
-                
-                const d = days[new Date(x.timestamp).getDay()];
-                return {
-                    ...x,
-                    day: d
-                }
-            });
-
-            const output = _.map(_.groupBy(dateSensor, 'roomArea'), (x, y) => {
-                var temp = {};
-                temp[y] = _.groupBy(x, 'day')
-                return temp;
-            });
-
-            res.json(output);
-
-        } catch(err){
-            res.json(err)
-        }
     }
-
 
 }
