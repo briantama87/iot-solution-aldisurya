@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 // app.use(express.static(path.join(__dirname + 'public')));
 app.use(express.static('public'));
 app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
+    console.log(`App listening`)
 });
 
 app.get('/tes', (req, res) => {
