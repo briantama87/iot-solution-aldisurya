@@ -37,7 +37,7 @@ aldisurya@aldisurya:~/ngoding/$ cd iot-solution-aldisurya
 ### Build Docker images and Docker Container
 After the cloning succed, and your lastest position was inside the folder repo. You need to build a docker images.
 ```bash
-aldisurya@aldisurya:~/ngoding/iot-solution-aldisuryasudo/$ docker build -t myiotapp .
+aldisurya@aldisurya:~/ngoding/iot-solution-aldisurya/$ sudo docker build -t myiotapp .
 ```
 Note : You can remove sudo command if you are using other OS (Win or MacOs).
 
