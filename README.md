@@ -31,11 +31,13 @@ Go to your whatever directory and clone the project.
 aldisurya@aldisurya:~/ngoding/$ git clone https://github.com/briantama87/iot-solution-aldisurya.git
 ```
 And then you just need to go inside the repo cloning directory.
-
+```bash
+aldisurya@aldisurya:~/ngoding/$ cd iot-solution-aldisurya
+```
 ### Build Docker images and Docker Container
 After the cloning succed, and your lastest position was inside the folder repo. You need to build a docker images.
 ```bash
-sudo docker build -t myiotapp .
+aldisurya@aldisurya:~/ngoding/iot-solution-aldisuryasudo/$ docker build -t myiotapp .
 ```
 Note : You can remove sudo command if you are using other OS (Win or MacOs).
 
@@ -51,12 +53,12 @@ Successfully tagged myiotapp:latest
 ### Starting Container (Application)
 Ensure that built image was succeed, and you need to start the container. Just typing command below.
 ```bash
-docker run --publish 3000:3000 myiotapp
+aldisurya@aldisurya:~/ngoding/iot-solution-aldisuryasudo/$  docker run --publish 3000:3000 myiotapp
 ```
 
-"3000" : port inside container to differentiate contents (App) (You can change them if the port was used)
+"3000" <1> : port inside container to differentiate contents (App) (You can change them if the port was used)
 
-"3000" : port container (You can change them if the port was used)
+"3000" <2> : port container (You can change them if the port was used)
 
 "myiotapp" : image name that build before
 
@@ -108,7 +110,7 @@ But, i think i've found the initial solution to answer the case 3#:
 
 I have made the similar project with case 3# in my last company experience. In that project, they have same principle using socket io instead of HTTP to get live data shown in front end side.
 
-Beside of that, i dont made a unit testing because i'm not having enough time more. But in my daily project, i always build a unit testing file (I usually use mocha js framework).
+Beside of that, i dont made a unit testing because i'm not having enough time more. But in my daily project, i always build a unit testing file (I usually use mocha js framework). If you are interseted, i have packed list of my project in my personal website portfolio (http://briantama87.github.io/)
 
 
 
