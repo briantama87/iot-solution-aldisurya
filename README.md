@@ -71,7 +71,7 @@ I have tried in 3 Different Os (Linux, Windows, and Macos) and all worked succes
 
 
 ## App Skeleton and Configuration
-I'm developed this application with MVC (Model-view-controllers) pattern, but in this simple app doesn't need model. So the existing folder are :
+I was developed this application with MVC (Model-view-controllers) pattern, but in this simple app doesn't need model. So the existing folder are :
 1. Controllers {to make algorithm and logic in the app)
 2. View (to render frontend, in this app i'm using ejs template engine and boostrap niceadmin template)
 3. Public (to store static file like json file and boostrap file)
@@ -102,7 +102,7 @@ To provide that data have grouped correctly, i've made REST API that will send t
 You can check in link (http://localhost:3000/sensordata).
 
 ### Case #3 Simulation
-Sorry i dont answering the case 3# because in that period i've doing my last campus exam in campus so i'm not having more time and just answered 2 Case.
+Sorry i dont answering the case 3# because in that period i had my last campus exam in campus so i'm not having more time and just answered 2 Case.
 
 But, i think i've found the initial solution to answer the case 3#:
 1. The live chart is made by websocket (i think i will be using socket.io module in node js)
