@@ -78,8 +78,14 @@ I was developed this application with MVC (Model-view-controllers) pattern, but 
 4. Route (to register any endpoint used)
 5. Dockerfile (to manage docker configuration)
 6. App.js (basic file in node js to start and config server)
+7. Tests (to storing file unit testing, in this case i'm using mocha js)
 
 ![image](https://user-images.githubusercontent.com/70438773/206243783-497e1886-8a8c-40dc-b1f1-abbac984ca36.png)
+
+
+### Unit Testing
+In this tests folder, that is index.js that storing unit testing file. Before start with docker, i've successfully testing the app with automatic unit testing using mocha js framework. I'm typing "npm run test" and the given output was like this.
+[![Screenshot-from-2022-12-08-01-49-31.png](https://i.postimg.cc/pXyb5dtg/Screenshot-from-2022-12-08-01-49-31.png)](https://postimg.cc/mtx60Bkw)
 
 ### Case #1 Salary Conversion
 You can check my answer soluton in link localhost (http://localhost:3000/salarytable)
@@ -108,9 +114,9 @@ But, i think i've found the initial solution to answer the case 3#:
 1. The live chart is made by websocket (i think i will be using socket.io module in node js)
 2. The start and stop button is based on timestamp data on the json file.
 
-I have made the similar project with case 3# in my last company experience. In that project, they have same principle using socket io instead of HTTP to get live data shown in front end side.
+I have made the similar project with case 3# in my last company experience. In that project, they have same principle using socket io instead of HTTP to get live data shown in frontend side. If you are interseted, i have packed list of my project in my personal website portfolio (http://briantama87.github.io/) and on my linkedin account (https://www.linkedin.com/in/aldisb/).
 
-Beside of that, i dont made a unit testing because i'm not having enough time more. But in my daily project, i always build a unit testing file (I usually use mocha js framework). If you are interseted, i have packed list of my project in my personal website portfolio (http://briantama87.github.io/) and on my linkedin account (https://www.linkedin.com/in/aldisb/).
+
 
 
 
