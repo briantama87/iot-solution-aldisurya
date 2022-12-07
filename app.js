@@ -24,3 +24,5 @@ app.get('/tes', (req, res) => {
 });
 
 app.use('/', router);
+
+module.exports = app
