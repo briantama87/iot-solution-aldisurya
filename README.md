@@ -53,7 +53,7 @@ Successfully tagged myiotapp:latest
 ### Starting Container (Application)
 Ensure that built image was succeed, and you need to start the container. Just typing command below.
 ```bash
-aldisurya@aldisurya:~/ngoding/iot-solution-aldisuryasudo/$  docker run --publish 3000:3000 myiotapp
+aldisurya@aldisurya:~/ngoding/iot-solution-aldisurya/$  sudo docker run --publish 3000:3000 myiotapp
 ```
 
 "3000" <1> : port inside container to differentiate contents (App) (You can change them if the port was used)
